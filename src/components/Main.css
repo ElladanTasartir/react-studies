@@ -19,7 +19,7 @@
   justify-content: center;
 }
 
-.form input[type="text"] {
+.form input[type='text'] {
   height: 40px;
   padding: 0 20px;
   font-size: 20px;
@@ -27,7 +27,7 @@
   min-width: 80%;
 }
 
-.form button[type="submit"] {
+.form button[type='submit'] {
   border: none;
   height: 40px;
   width: 40px;
@@ -39,6 +39,50 @@
   transition: filter 200ms;
 }
 
-.form button[type="submit"]:hover {
+.form button[type='submit']:hover {
   filter: brightness(0.7);
+}
+
+.tarefas {
+  margin-top: 30px;
+}
+
+.tarefas li {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 10px;
+  transition: all 200ms;
+  border-radius: 4px;
+}
+
+.tarefas li:hover {
+  background: #51c5de;
+}
+
+.tarefas li .edit {
+  margin-right: 15px;
+  color: #51c5de;
+}
+
+.tarefas li .delete {
+  margin-right: 15px;
+  color: #f04c64;
+}
+
+.tarefas li:hover .delete,
+.tarefas li:hover .edit {
+  color: #000;
+}
+
+.tarefas li .delete,
+.tarefas li .edit {
+  cursor: pointer;
+  transition: all 200ms;
+}
+
+.tarefas li span {
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }
