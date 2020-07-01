@@ -1,7 +1,9 @@
 import React from 'react';
 import { Router } from 'react-router-dom';
 import { ToastContainer } from 'react-toastify';
+import { Provider } from 'react-redux';
 
+import store from './store';
 import history from './services/history';
 import Routes from './routes';
 import Header from './components/Header';
@@ -19,13 +21,17 @@ function App() {
     // toast.success('Oie, sucesso');
     // reproduz uma nensagem de erro no toastify:
     // toast.error('Droga');
-    <Router history={history}>
-      <Header />
-      <Routes />
-      <GlobalStyle />
-      {/* autoClose: tanto de tempo para as mensagens fecharem em ms */}
-      <ToastContainer autoClose={3000} className="toast-container" />
-    </Router>
+    // O provider do react-redux precisa englobar a aplicação
+    // e receber o nosso store como prop
+    <Provider store={store}>
+      <Router history={history}>
+        <Header />
+        <Routes />
+        <GlobalStyle />
+        {/* autoClose: tanto de tempo para as mensagens fecharem em ms */}
+        <ToastContainer autoClose={3000} className="toast-container" />
+      </Router>
+    </Provider>
   );
 }
 
