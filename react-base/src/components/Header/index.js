@@ -11,7 +11,7 @@ import { Nav } from './styled';
 // BrowserRouter, pra poder garantir essa transição de rotas
 // E a utilização de Links
 export default function Header() {
-  const botaoClicado = useSelector((state) => state.botaoClicado);
+  const botaoClicado = useSelector((state) => state.example.botaoClicado);
   // Se retornamos o state para essa variável, toda vez que alteramos essa variável
   // O componente será renderizado novamente
   // Em toda página que a aplicação renderizar, ela possuirá esse estado

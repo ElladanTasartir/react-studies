@@ -16,3 +16,11 @@ passa a ser o estado global da aplicação
 
 ##### Não é toda aplicação que vai precisar do Redux, somente quando formos precisar de estados globais
 Exemplo: Um carrinho de compras em uma aplicação é preciso que seja um estado global, porque ele precisa estar presente em toda aplicação e não só na tela do pedido em que o usuário fez, aquela informação precisa ser exposta à toda a aplicação
+
+
+#### Redux Saga
+
+O Saga é majoritariamente usado para realizar alterações assíncronas nos estados da aplicação, para disparar essas ações de forma assíncronas com os middlewares do Saga.
+
+Fluxo normal do Redux: Ação -> Reducer escuta a ação -> Reducer decide o que vai fazer -> Retorna newState/state
+Fluxo com Saga: Ação (request, faz uma requisição para a ação) -> Saga vai verificar -> Saga chama o Reducer enviando uma ação de sucesso ou falha
