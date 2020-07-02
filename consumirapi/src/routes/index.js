@@ -2,24 +2,23 @@ import React from 'react';
 import { Switch } from 'react-router-dom';
 
 import MyRoute from './MyRoute';
+
 import Login from '../pages/Login';
+import Aluno from '../pages/Aluno';
+import Alunos from '../pages/Alunos';
+import Photos from '../pages/Photos';
+import Register from '../pages/Register';
 import Page404 from '../pages/Page404';
 
 export default function Routes() {
-  // É necessário envolver o componente de rotas em um Browser Router
-  // Switch: permite que somente UMA rota seja chamada por vez
-  // Route, recebe o endereço da rota que será acessível e o componente renderizado
-  // em dada rota
-  // O atributo exact path fala que o componente só será renderizado caso a rota seja exatamente igual, sem tirar
-  // nem por do conteúdo colocado
-  // Quando inserimos * na path, significa que essa será a rota renderizada quando não for encontrada
-  // uma das rotas definidas no route, uma rota genérica
-
   return (
     <Switch>
-      {/* Se a prop isClosed é passada, o nosso componente redirecionará
-        para a rota de login, tornando essa rota inacessível */}
-      <MyRoute exact path="/" component={Login} />
+      <MyRoute exact path="/" component={Alunos} isClosed={false} />
+      <MyRoute path="/aluno/:id/edit" component={Aluno} isClosed />
+      <MyRoute path="/aluno/:id/" component={Alunos} isClosed />
+      <MyRoute path="/photos/:id" component={Photos} isClosed />
+      <MyRoute path="/login/" component={Login} isClosed={false} />
+      <MyRoute path="/register" component={Register} isClosed={false} />
       <MyRoute path="*" component={Page404} />
     </Switch>
   );
