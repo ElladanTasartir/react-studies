@@ -24,3 +24,8 @@ O Saga é majoritariamente usado para realizar alterações assíncronas nos est
 
 Fluxo normal do Redux: Ação -> Reducer escuta a ação -> Reducer decide o que vai fazer -> Retorna newState/state
 Fluxo com Saga: Ação (request, faz uma requisição para a ação) -> Saga vai verificar -> Saga chama o Reducer enviando uma ação de sucesso ou falha
+
+#### Redux Persist
+
+Vai persistir os estados na aplicação, mesmo depois do usuário já ter fechado a aplicação, comportamento parecido com localStorage.
+O Redux Persist espera os dados declarados no persistor serem salvos antes de renderizar a aplicação React, o que significa que ele permite que a nossa aplicação sempre seja renderizada com os dados que persistimos em mãos, não tendo que primeiro abrir, renderizar, receber os dados e depois renderizar em tela

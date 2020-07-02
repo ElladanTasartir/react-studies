@@ -8,10 +8,10 @@ import * as types from '../types';
 // Ex: Usuário clica no botão de Enviar 300x, o Sagas só vai pegar a ÚLTIMA chamada desse botão
 // all -> permite colocar mais de uma ação para ser escutada
 const requisicao = () =>
-  new Promise((resolve, reject) => {
+  new Promise((resolve) => {
     setTimeout(() => {
-      reject();
-    }, 2000);
+      resolve();
+    }, 600);
   });
 
 // O Saga usa as funções geradoras para realizar as requisições com call
