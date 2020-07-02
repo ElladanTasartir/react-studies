@@ -15,7 +15,6 @@ export default function (state = initialState, action) {
   // Apenas copia-se os dados e retorna em um novo estado
   switch (action.type) {
     case types.BOTAO_CLICADO_SUCCESS: {
-      console.log('Sucesso');
       const newState = { ...state };
       // Realiza um toggle no botão
       newState.botaoClicado = !newState.botaoClicado;
@@ -23,11 +22,9 @@ export default function (state = initialState, action) {
     }
     // Não pode atualizar o estado na de falha ou request, pois não se teve um sucesso na requisição ainda
     case types.BOTAO_CLICADO_FAILURE: {
-      console.log('Deu erro :( ');
       return state;
     }
     case types.BOTAO_CLICADO_REQUEST: {
-      console.log('Estou fazendo a requisição');
       return state;
     }
 
