@@ -1,8 +1,8 @@
 import { combineReducers } from 'redux';
 // Função do rootReducer é combinar vários reducers
 
-import exampleReducer from './example/reducer';
+import auth from './auth/reducer';
 
 export default combineReducers({
-  example: exampleReducer,
+  auth,
 });

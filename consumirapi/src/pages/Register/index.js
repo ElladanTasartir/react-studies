@@ -28,7 +28,7 @@ export default function Register() {
       toast.error('Email inválido');
     }
 
-    if (password.length < 6 || nome.length > 50) {
+    if (password.length < 6 || password.length > 50) {
       formErrors = true;
       toast.error('Senha deve ter entre 6 e 50 caracteres');
     }
