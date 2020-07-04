@@ -9,7 +9,7 @@ const initialState = {
 
 export default function (state = initialState, action) {
   switch (action.type) {
-    case types.LOGIN_REQUEST: {
+    case types.LOGIN_SUCCESS: {
       const newState = { ...state };
       newState.isLoggedIn = true;
       newState.token = action.payload.token;

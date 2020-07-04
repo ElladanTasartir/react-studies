@@ -11,6 +11,7 @@ function* loginRequest({ payload }) {
     // Aqui pedimos para o sagas realizar essa chamada no axios, passando ele como callback
     // e os argumentos dele como args do call, ou seja, primeiro o callback e depois os argumentos dele
     const response = yield call(axios.post, '/tokens', payload);
+
     yield put(actions.loginSuccess({ ...response.data }));
 
     toast.success('Você fez login');
@@ -30,7 +31,6 @@ function persistRehydrate({ payload }) {
   const token = get(payload, 'auth.token', '');
 
   if (!token) return;
-
   axios.defaults.headers.Authorization = `Bearer ${token}`;
 }
 
