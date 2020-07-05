@@ -1,5 +1,7 @@
 import styled from 'styled-components';
 
+import * as colors from '../../config/colors';
+
 export const AlunoContainer = styled.div`
   margin-top: 30px;
 
@@ -14,6 +16,11 @@ export const AlunoContainer = styled.div`
   AlunoContainer menos a primeira, pois ela não é seguida de outra div, recebem essa borda */
   div + div {
     border-top: 1px solid #eee;
+  }
+
+  svg {
+    fill: ${colors.primaryColor};
+    background: #fff;
   }
 `;
 

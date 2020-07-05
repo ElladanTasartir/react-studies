@@ -1,8 +1,14 @@
 import React, { useEffect, useState } from 'react';
 import { Link } from 'react-router-dom';
-import { FaUserCircle, FaEdit, FaWindowClose } from 'react-icons/fa';
+import {
+  FaUserCircle,
+  FaEdit,
+  FaWindowClose,
+  FaExclamation,
+} from 'react-icons/fa';
 import { get } from 'lodash';
 
+import { toast } from 'react-toastify';
 import { Container } from '../../styles/GlobalStyles';
 import axios from '../../services/axios';
 import { AlunoContainer, ProfilePicture } from './styled';
@@ -23,6 +29,32 @@ export default function Alunos() {
 
     getData();
   }, []);
+
+  const handleDeleteAsk = (e) => {
+    e.preventDefault();
+    // e.currentTarget retorna o link que clicamos enquanto o target retorna o ícone
+    // dessa forma,substituímos o ícone de excluir com um de exclamação
+    const exclamation = e.currentTarget.nextSibling;
+    exclamation.setAttribute('display', 'block');
+    e.currentTarget.remove();
+  };
+
+  const handleDelete = async (e, id) => {
+    e.persist();
+    setIsLoading(true);
+    try {
+      await axios.delete(`/alunos/${id}`);
+      // Com isso removemos o pai do elemento clicado
+      const novosAlunos = alunos.filter((aluno) => aluno.id !== id);
+      setAlunos(novosAlunos);
+    } catch (err) {
+      const status = get(err, 'response.status', 0);
+
+      if (status === 401) toast.error('Você precisa fazer login');
+      else toast.error('Ocorreu um erro ao excluir aluno');
+    }
+    setIsLoading(false);
+  };
 
   return (
     <Container>
@@ -48,9 +80,16 @@ export default function Alunos() {
             <Link to={`/aluno/${aluno.id}/edit`}>
               <FaEdit size={16} />
             </Link>
-            <Link to={`/aluno/${aluno.id}/delete`}>
+            <Link onClick={handleDeleteAsk} to={`/aluno/${aluno.id}/delete`}>
               <FaWindowClose size={16} />
             </Link>
+
+            <FaExclamation
+              size={16}
+              display="none"
+              cursor="pointer"
+              onClick={(e) => handleDelete(e, aluno.id)}
+            />
           </div>
         ))}
       </AlunoContainer>
