@@ -1,4 +1,5 @@
 import styled from 'styled-components';
+import { Link } from 'react-router-dom';
 
 import * as colors from '../../config/colors';
 
@@ -30,4 +31,15 @@ export const ProfilePicture = styled.div`
     height: 36px;
     border-radius: 50%;
   }
+`;
+
+// Para estilizar um componente próprio do react
+export const NovoAluno = styled(Link)`
+  font-weight: bold;
+  text-align: center;
+  margin-top: 20px;
+  border-radius: 4px;
+  color: #fff;
+  display: block;
+  padding: 10px;
 `;
