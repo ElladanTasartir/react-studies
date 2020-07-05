@@ -6,6 +6,8 @@ export const BOTAO_CLICADO_FAILURE = 'BOTAO_CLICADO_FAILURE';
 export const LOGIN_REQUEST = 'LOGIN_REQUEST';
 export const LOGIN_SUCCESS = 'LOGIN_SUCCESS';
 export const LOGIN_FAILURE = 'LOGIN_FAILURE';
+
+export const REGISTER_REQUEST = 'REGISTER_REQUEST';
 // Action disparada pelo redux-persist,quando vai pegar os estados do storage
 // E colocar no state
 export const PERSIST_REHYDRATE = 'persist/REHYDRATE';
